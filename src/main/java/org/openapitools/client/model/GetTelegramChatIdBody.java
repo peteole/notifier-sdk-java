@@ -45,22 +45,45 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * RemoveChannelBody
+ * GetTelegramChatIdBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-23T19:42:16.458091Z[Etc/UTC]")
-public class RemoveChannelBody {
+public class GetTelegramChatIdBody {
+  public static final String SERIALIZED_NAME_TELEGRAM_USERNAME = "telegram_username";
+  @SerializedName(SERIALIZED_NAME_TELEGRAM_USERNAME)
+  private String telegramUsername;
+
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
-  private String serviceId;
-
-  public RemoveChannelBody() { 
+  public GetTelegramChatIdBody() { 
   }
 
-  public RemoveChannelBody userId(String userId) {
+  public GetTelegramChatIdBody telegramUsername(String telegramUsername) {
+    
+    this.telegramUsername = telegramUsername;
+    return this;
+  }
+
+   /**
+   * Get telegramUsername
+   * @return telegramUsername
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getTelegramUsername() {
+    return telegramUsername;
+  }
+
+
+  public void setTelegramUsername(String telegramUsername) {
+    this.telegramUsername = telegramUsername;
+  }
+
+
+  public GetTelegramChatIdBody userId(String userId) {
     
     this.userId = userId;
     return this;
@@ -83,29 +106,6 @@ public class RemoveChannelBody {
   }
 
 
-  public RemoveChannelBody serviceId(String serviceId) {
-    
-    this.serviceId = serviceId;
-    return this;
-  }
-
-   /**
-   * Get serviceId
-   * @return serviceId
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getServiceId() {
-    return serviceId;
-  }
-
-
-  public void setServiceId(String serviceId) {
-    this.serviceId = serviceId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -115,22 +115,22 @@ public class RemoveChannelBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RemoveChannelBody removeChannelBody = (RemoveChannelBody) o;
-    return Objects.equals(this.userId, removeChannelBody.userId) &&
-        Objects.equals(this.serviceId, removeChannelBody.serviceId);
+    GetTelegramChatIdBody getTelegramChatIdBody = (GetTelegramChatIdBody) o;
+    return Objects.equals(this.telegramUsername, getTelegramChatIdBody.telegramUsername) &&
+        Objects.equals(this.userId, getTelegramChatIdBody.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, serviceId);
+    return Objects.hash(telegramUsername, userId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RemoveChannelBody {\n");
+    sb.append("class GetTelegramChatIdBody {\n");
+    sb.append("    telegramUsername: ").append(toIndentedString(telegramUsername)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,49 +153,49 @@ public class RemoveChannelBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("telegram_username");
     openapiFields.add("user_id");
-    openapiFields.add("service_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("telegram_username");
     openapiRequiredFields.add("user_id");
-    openapiRequiredFields.add("service_id");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RemoveChannelBody
+  * @throws IOException if the JSON Object is invalid with respect to GetTelegramChatIdBody
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (RemoveChannelBody.openapiRequiredFields.isEmpty()) {
+        if (GetTelegramChatIdBody.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RemoveChannelBody is not found in the empty JSON string", RemoveChannelBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GetTelegramChatIdBody is not found in the empty JSON string", GetTelegramChatIdBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!RemoveChannelBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RemoveChannelBody` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!GetTelegramChatIdBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTelegramChatIdBody` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RemoveChannelBody.openapiRequiredFields) {
+      for (String requiredField : GetTelegramChatIdBody.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      if (jsonObj.get("telegram_username") != null && !jsonObj.get("telegram_username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `telegram_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("telegram_username").toString()));
+      }
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
-      }
-      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
       }
   }
 
@@ -203,22 +203,22 @@ public class RemoveChannelBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RemoveChannelBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RemoveChannelBody' and its subtypes
+       if (!GetTelegramChatIdBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetTelegramChatIdBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RemoveChannelBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RemoveChannelBody.class));
+       final TypeAdapter<GetTelegramChatIdBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetTelegramChatIdBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RemoveChannelBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<GetTelegramChatIdBody>() {
            @Override
-           public void write(JsonWriter out, RemoveChannelBody value) throws IOException {
+           public void write(JsonWriter out, GetTelegramChatIdBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RemoveChannelBody read(JsonReader in) throws IOException {
+           public GetTelegramChatIdBody read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -229,18 +229,18 @@ public class RemoveChannelBody {
   }
 
  /**
-  * Create an instance of RemoveChannelBody given an JSON string
+  * Create an instance of GetTelegramChatIdBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RemoveChannelBody
-  * @throws IOException if the JSON string is invalid with respect to RemoveChannelBody
+  * @return An instance of GetTelegramChatIdBody
+  * @throws IOException if the JSON string is invalid with respect to GetTelegramChatIdBody
   */
-  public static RemoveChannelBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RemoveChannelBody.class);
+  public static GetTelegramChatIdBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetTelegramChatIdBody.class);
   }
 
  /**
-  * Convert an instance of RemoveChannelBody to an JSON string
+  * Convert an instance of GetTelegramChatIdBody to an JSON string
   *
   * @return JSON string
   */

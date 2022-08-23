@@ -4,18 +4,19 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**handleAddEmailChannel**](CrateApi.md#handleAddEmailChannel) | **POST** /add_channel/email | Add email channel |
-| [**handleAddTelegramChannel**](CrateApi.md#handleAddTelegramChannel) | **POST** /add_channel/telegram | Add telegram channel |
-| [**handleSendNotification**](CrateApi.md#handleSendNotification) | **POST** /notify | Send notification |
+| [**handleAddChannel**](CrateApi.md#handleAddChannel) | **POST** /add_channel | Add channel |
+| [**handleGetTelegramChatId**](CrateApi.md#handleGetTelegramChatId) | **POST** /get_telegram_chat_id | Get the chat ID of a telegram username |
+| [**handleNotify**](CrateApi.md#handleNotify) | **POST** /notify | Send notification |
+| [**handleRemoveChannel**](CrateApi.md#handleRemoveChannel) | **POST** /remove_channel | Remove channel |
 
 
-<a name="handleAddEmailChannel"></a>
-# **handleAddEmailChannel**
-> handleAddEmailChannel(addEmailChannelBody)
+<a name="handleAddChannel"></a>
+# **handleAddChannel**
+> handleAddChannel(addChannelBody)
 
-Add email channel
+Add channel
 
-Add email channel  Add email notification channel for user 
+Add channel  Remove notification channel for user 
 
 ### Example
 ```java
@@ -32,11 +33,11 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     CrateApi apiInstance = new CrateApi(defaultClient);
-    AddEmailChannelBody addEmailChannelBody = new AddEmailChannelBody(); // AddEmailChannelBody | 
+    AddChannelBody addChannelBody = new AddChannelBody(); // AddChannelBody | 
     try {
-      apiInstance.handleAddEmailChannel(addEmailChannelBody);
+      apiInstance.handleAddChannel(addChannelBody);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CrateApi#handleAddEmailChannel");
+      System.err.println("Exception when calling CrateApi#handleAddChannel");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -50,7 +51,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **addEmailChannelBody** | [**AddEmailChannelBody**](AddEmailChannelBody.md)|  | |
+| **addChannelBody** | [**AddChannelBody**](AddChannelBody.md)|  | |
 
 ### Return type
 
@@ -70,13 +71,13 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Channel added successfully |  -  |
 
-<a name="handleAddTelegramChannel"></a>
-# **handleAddTelegramChannel**
-> handleAddTelegramChannel(addTelegramChannelBody)
+<a name="handleGetTelegramChatId"></a>
+# **handleGetTelegramChatId**
+> handleGetTelegramChatId(getTelegramChatIdBody)
 
-Add telegram channel
+Get the chat ID of a telegram username
 
-Add telegram channel  Add telegram notification channel for user 
+Get the chat ID of a telegram username  First call this endpoint, then ask the user to send a message to the bot, then the chat id will be returned 
 
 ### Example
 ```java
@@ -93,11 +94,11 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     CrateApi apiInstance = new CrateApi(defaultClient);
-    AddTelegramChannelBody addTelegramChannelBody = new AddTelegramChannelBody(); // AddTelegramChannelBody | 
+    GetTelegramChatIdBody getTelegramChatIdBody = new GetTelegramChatIdBody(); // GetTelegramChatIdBody | 
     try {
-      apiInstance.handleAddTelegramChannel(addTelegramChannelBody);
+      apiInstance.handleGetTelegramChatId(getTelegramChatIdBody);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CrateApi#handleAddTelegramChannel");
+      System.err.println("Exception when calling CrateApi#handleGetTelegramChatId");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -111,7 +112,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **addTelegramChannelBody** | [**AddTelegramChannelBody**](AddTelegramChannelBody.md)|  | |
+| **getTelegramChatIdBody** | [**GetTelegramChatIdBody**](GetTelegramChatIdBody.md)|  | |
 
 ### Return type
 
@@ -131,9 +132,9 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Channel added successfully |  -  |
 
-<a name="handleSendNotification"></a>
-# **handleSendNotification**
-> handleSendNotification(sendNotificationBody)
+<a name="handleNotify"></a>
+# **handleNotify**
+> handleNotify(sendNotificationBody)
 
 Send notification
 
@@ -156,9 +157,9 @@ public class Example {
     CrateApi apiInstance = new CrateApi(defaultClient);
     SendNotificationBody sendNotificationBody = new SendNotificationBody(); // SendNotificationBody | 
     try {
-      apiInstance.handleSendNotification(sendNotificationBody);
+      apiInstance.handleNotify(sendNotificationBody);
     } catch (ApiException e) {
-      System.err.println("Exception when calling CrateApi#handleSendNotification");
+      System.err.println("Exception when calling CrateApi#handleNotify");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -191,4 +192,65 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Notification sent successfully |  -  |
+
+<a name="handleRemoveChannel"></a>
+# **handleRemoveChannel**
+> handleRemoveChannel(removeChannelBody)
+
+Remove channel
+
+Remove channel  Remove notification channel for user 
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CrateApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    CrateApi apiInstance = new CrateApi(defaultClient);
+    RemoveChannelBody removeChannelBody = new RemoveChannelBody(); // RemoveChannelBody | 
+    try {
+      apiInstance.handleRemoveChannel(removeChannelBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CrateApi#handleRemoveChannel");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **removeChannelBody** | [**RemoveChannelBody**](RemoveChannelBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Channel removed successfully |  -  |
 
