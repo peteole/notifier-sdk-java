@@ -46,4 +46,3 @@ src/main/java/org/openapitools/client/model/ChannelsResponse.java
 src/main/java/org/openapitools/client/model/GetTelegramChatIdBody.java
 src/main/java/org/openapitools/client/model/NotifyBody.java
 src/main/java/org/openapitools/client/model/RemoveChannelBody.java
-src/test/java/org/openapitools/client/model/ChannelResponseTest.java

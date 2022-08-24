@@ -7,7 +7,7 @@ info:
   license:
     name: ""
   title: notifier
-  version: 0.3.0
+  version: 0.3.1
 servers:
 - url: /
 paths:
@@ -129,44 +129,35 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ChannelResponse:
-      example:
-        service_username: service_username
-        service_id: service_id
-      properties:
-        service_username:
-          type: string
-        service_id:
-          type: string
-      required:
-      - service_id
-      - service_username
-      type: object
     NotifyBody:
       example:
         user_id: user_id
         subject: subject
         message: message
       properties:
-        user_id:
-          type: string
         subject:
           type: string
         message:
+          type: string
+        user_id:
           type: string
       required:
       - message
       - subject
       - user_id
       type: object
-    GetTelegramChatIdBody:
+    ChannelResponse:
       example:
-        telegram_username: telegram_username
+        service_username: service_username
+        service_id: service_id
       properties:
-        telegram_username:
+        service_id:
+          type: string
+        service_username:
           type: string
       required:
-      - telegram_username
+      - service_id
+      - service_username
       type: object
     ChannelsResponse:
       example:
@@ -187,18 +178,14 @@ components:
       - channels
       - user_id
       type: object
-    RemoveChannelBody:
+    GetTelegramChatIdBody:
       example:
-        user_id: user_id
-        service_id: service_id
+        telegram_username: telegram_username
       properties:
-        user_id:
-          type: string
-        service_id:
+        telegram_username:
           type: string
       required:
-      - service_id
-      - user_id
+      - telegram_username
       type: object
     AddChannelBody:
       example:
@@ -206,15 +193,28 @@ components:
         service_username: service_username
         service_id: service_id
       properties:
-        user_id:
-          type: string
         service_username:
+          type: string
+        user_id:
           type: string
         service_id:
           type: string
       required:
       - service_id
       - service_username
+      - user_id
+      type: object
+    RemoveChannelBody:
+      example:
+        user_id: user_id
+        service_id: service_id
+      properties:
+        service_id:
+          type: string
+        user_id:
+          type: string
+      required:
+      - service_id
       - user_id
       type: object
 
