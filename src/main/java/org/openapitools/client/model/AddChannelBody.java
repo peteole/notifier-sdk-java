@@ -47,19 +47,19 @@ import org.openapitools.client.JSON;
 /**
  * AddChannelBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:10:38.028268Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:14:10.044526Z[Etc/UTC]")
 public class AddChannelBody {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
-  private String serviceId;
-
   public static final String SERIALIZED_NAME_SERVICE_USERNAME = "service_username";
   @SerializedName(SERIALIZED_NAME_SERVICE_USERNAME)
   private String serviceUsername;
+
+  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
+  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
+  private String serviceId;
 
   public AddChannelBody() { 
   }
@@ -87,29 +87,6 @@ public class AddChannelBody {
   }
 
 
-  public AddChannelBody serviceId(String serviceId) {
-    
-    this.serviceId = serviceId;
-    return this;
-  }
-
-   /**
-   * Get serviceId
-   * @return serviceId
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getServiceId() {
-    return serviceId;
-  }
-
-
-  public void setServiceId(String serviceId) {
-    this.serviceId = serviceId;
-  }
-
-
   public AddChannelBody serviceUsername(String serviceUsername) {
     
     this.serviceUsername = serviceUsername;
@@ -133,6 +110,29 @@ public class AddChannelBody {
   }
 
 
+  public AddChannelBody serviceId(String serviceId) {
+    
+    this.serviceId = serviceId;
+    return this;
+  }
+
+   /**
+   * Get serviceId
+   * @return serviceId
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getServiceId() {
+    return serviceId;
+  }
+
+
+  public void setServiceId(String serviceId) {
+    this.serviceId = serviceId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -144,13 +144,13 @@ public class AddChannelBody {
     }
     AddChannelBody addChannelBody = (AddChannelBody) o;
     return Objects.equals(this.userId, addChannelBody.userId) &&
-        Objects.equals(this.serviceId, addChannelBody.serviceId) &&
-        Objects.equals(this.serviceUsername, addChannelBody.serviceUsername);
+        Objects.equals(this.serviceUsername, addChannelBody.serviceUsername) &&
+        Objects.equals(this.serviceId, addChannelBody.serviceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, serviceId, serviceUsername);
+    return Objects.hash(userId, serviceUsername, serviceId);
   }
 
   @Override
@@ -158,8 +158,8 @@ public class AddChannelBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class AddChannelBody {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceUsername: ").append(toIndentedString(serviceUsername)).append("\n");
+    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -183,14 +183,14 @@ public class AddChannelBody {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("user_id");
-    openapiFields.add("service_id");
     openapiFields.add("service_username");
+    openapiFields.add("service_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("user_id");
-    openapiRequiredFields.add("service_id");
     openapiRequiredFields.add("service_username");
+    openapiRequiredFields.add("service_id");
   }
 
  /**
@@ -225,11 +225,11 @@ public class AddChannelBody {
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
-      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
-      }
       if (jsonObj.get("service_username") != null && !jsonObj.get("service_username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `service_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_username").toString()));
+      }
+      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
       }
   }
 

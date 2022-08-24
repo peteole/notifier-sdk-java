@@ -94,6 +94,7 @@ public class JSON {
             .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
             .registerTypeAdapter(byte[].class, byteArrayAdapter)
             .registerTypeAdapterFactory(new org.openapitools.client.model.AddChannelBody.CustomTypeAdapterFactory())
+            .registerTypeAdapterFactory(new org.openapitools.client.model.ChannelResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new org.openapitools.client.model.ChannelsResponse.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new org.openapitools.client.model.GetTelegramChatIdBody.CustomTypeAdapterFactory())
             .registerTypeAdapterFactory(new org.openapitools.client.model.NotifyBody.CustomTypeAdapterFactory())

@@ -47,7 +47,7 @@ import org.openapitools.client.JSON;
 /**
  * RemoveChannelBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:10:38.028268Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:14:10.044526Z[Etc/UTC]")
 public class RemoveChannelBody {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**channels** | [**List&lt;ChannelResponse&gt;**](ChannelResponse.md) |  |  |
 |**userId** | **String** |  |  |
-|**channels** | **List&lt;ChannelResponse&gt;** |  |  |
 
 
 

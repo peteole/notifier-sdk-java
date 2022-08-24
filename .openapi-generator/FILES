@@ -6,6 +6,7 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/AddChannelBody.md
+docs/ChannelResponse.md
 docs/ChannelsResponse.md
 docs/CrateApi.md
 docs/GetTelegramChatIdBody.md
@@ -40,7 +41,9 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AddChannelBody.java
+src/main/java/org/openapitools/client/model/ChannelResponse.java
 src/main/java/org/openapitools/client/model/ChannelsResponse.java
 src/main/java/org/openapitools/client/model/GetTelegramChatIdBody.java
 src/main/java/org/openapitools/client/model/NotifyBody.java
 src/main/java/org/openapitools/client/model/RemoveChannelBody.java
+src/test/java/org/openapitools/client/model/ChannelResponseTest.java
