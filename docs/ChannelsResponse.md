@@ -1,15 +1,14 @@
 
 
-# AddChannelBody
+# ChannelsResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**serviceId** | **String** |  |  |
-|**serviceUsername** | **String** |  |  |
 |**userId** | **String** |  |  |
+|**channels** | **List&lt;ChannelResponse&gt;** |  |  |
 
 
 

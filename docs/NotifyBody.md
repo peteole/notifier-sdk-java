@@ -1,15 +1,15 @@
 
 
-# AddChannelBody
+# NotifyBody
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**serviceId** | **String** |  |  |
-|**serviceUsername** | **String** |  |  |
 |**userId** | **String** |  |  |
+|**message** | **String** |  |  |
+|**subject** | **String** |  |  |
 
 
 

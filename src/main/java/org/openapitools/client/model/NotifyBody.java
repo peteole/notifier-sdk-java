@@ -45,22 +45,26 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * RemoveChannelBody
+ * NotifyBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T12:44:59.096146Z[Etc/UTC]")
-public class RemoveChannelBody {
+public class NotifyBody {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
-  private String serviceId;
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
 
-  public RemoveChannelBody() { 
+  public static final String SERIALIZED_NAME_SUBJECT = "subject";
+  @SerializedName(SERIALIZED_NAME_SUBJECT)
+  private String subject;
+
+  public NotifyBody() { 
   }
 
-  public RemoveChannelBody userId(String userId) {
+  public NotifyBody userId(String userId) {
     
     this.userId = userId;
     return this;
@@ -83,26 +87,49 @@ public class RemoveChannelBody {
   }
 
 
-  public RemoveChannelBody serviceId(String serviceId) {
+  public NotifyBody message(String message) {
     
-    this.serviceId = serviceId;
+    this.message = message;
     return this;
   }
 
    /**
-   * Get serviceId
-   * @return serviceId
+   * Get message
+   * @return message
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public String getServiceId() {
-    return serviceId;
+  public String getMessage() {
+    return message;
   }
 
 
-  public void setServiceId(String serviceId) {
-    this.serviceId = serviceId;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+
+  public NotifyBody subject(String subject) {
+    
+    this.subject = subject;
+    return this;
+  }
+
+   /**
+   * Get subject
+   * @return subject
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getSubject() {
+    return subject;
+  }
+
+
+  public void setSubject(String subject) {
+    this.subject = subject;
   }
 
 
@@ -115,22 +142,24 @@ public class RemoveChannelBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RemoveChannelBody removeChannelBody = (RemoveChannelBody) o;
-    return Objects.equals(this.userId, removeChannelBody.userId) &&
-        Objects.equals(this.serviceId, removeChannelBody.serviceId);
+    NotifyBody notifyBody = (NotifyBody) o;
+    return Objects.equals(this.userId, notifyBody.userId) &&
+        Objects.equals(this.message, notifyBody.message) &&
+        Objects.equals(this.subject, notifyBody.subject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, serviceId);
+    return Objects.hash(userId, message, subject);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RemoveChannelBody {\n");
+    sb.append("class NotifyBody {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,39 +183,41 @@ public class RemoveChannelBody {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("user_id");
-    openapiFields.add("service_id");
+    openapiFields.add("message");
+    openapiFields.add("subject");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("user_id");
-    openapiRequiredFields.add("service_id");
+    openapiRequiredFields.add("message");
+    openapiRequiredFields.add("subject");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RemoveChannelBody
+  * @throws IOException if the JSON Object is invalid with respect to NotifyBody
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (RemoveChannelBody.openapiRequiredFields.isEmpty()) {
+        if (NotifyBody.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RemoveChannelBody is not found in the empty JSON string", RemoveChannelBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in NotifyBody is not found in the empty JSON string", NotifyBody.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!RemoveChannelBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RemoveChannelBody` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!NotifyBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotifyBody` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RemoveChannelBody.openapiRequiredFields) {
+      for (String requiredField : NotifyBody.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
@@ -194,8 +225,11 @@ public class RemoveChannelBody {
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
-      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
+      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
       }
   }
 
@@ -203,22 +237,22 @@ public class RemoveChannelBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RemoveChannelBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RemoveChannelBody' and its subtypes
+       if (!NotifyBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'NotifyBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RemoveChannelBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RemoveChannelBody.class));
+       final TypeAdapter<NotifyBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(NotifyBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RemoveChannelBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<NotifyBody>() {
            @Override
-           public void write(JsonWriter out, RemoveChannelBody value) throws IOException {
+           public void write(JsonWriter out, NotifyBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RemoveChannelBody read(JsonReader in) throws IOException {
+           public NotifyBody read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -229,18 +263,18 @@ public class RemoveChannelBody {
   }
 
  /**
-  * Create an instance of RemoveChannelBody given an JSON string
+  * Create an instance of NotifyBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RemoveChannelBody
-  * @throws IOException if the JSON string is invalid with respect to RemoveChannelBody
+  * @return An instance of NotifyBody
+  * @throws IOException if the JSON string is invalid with respect to NotifyBody
   */
-  public static RemoveChannelBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RemoveChannelBody.class);
+  public static NotifyBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, NotifyBody.class);
   }
 
  /**
-  * Convert an instance of RemoveChannelBody to an JSON string
+  * Convert an instance of NotifyBody to an JSON string
   *
   * @return JSON string
   */

@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost*
 
 Add channel
 
-Add channel  Remove notification channel for user 
+Add channel  Add notification channel for user 
 
 ### Example
 ```java
@@ -134,7 +134,7 @@ No authorization required
 
 <a name="handleNotify"></a>
 # **handleNotify**
-> handleNotify(sendNotificationBody)
+> handleNotify(notifyBody)
 
 Send notification
 
@@ -155,9 +155,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     CrateApi apiInstance = new CrateApi(defaultClient);
-    SendNotificationBody sendNotificationBody = new SendNotificationBody(); // SendNotificationBody | 
+    NotifyBody notifyBody = new NotifyBody(); // NotifyBody | 
     try {
-      apiInstance.handleNotify(sendNotificationBody);
+      apiInstance.handleNotify(notifyBody);
     } catch (ApiException e) {
       System.err.println("Exception when calling CrateApi#handleNotify");
       System.err.println("Status code: " + e.getCode());
@@ -173,7 +173,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sendNotificationBody** | [**SendNotificationBody**](SendNotificationBody.md)|  | |
+| **notifyBody** | [**NotifyBody**](NotifyBody.md)|  | |
 
 ### Return type
 

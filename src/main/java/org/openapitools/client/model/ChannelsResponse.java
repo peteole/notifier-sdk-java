@@ -23,6 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.ChannelResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,22 +48,22 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * RemoveChannelBody
+ * ChannelsResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T12:44:59.096146Z[Etc/UTC]")
-public class RemoveChannelBody {
+public class ChannelsResponse {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
-  private String serviceId;
+  public static final String SERIALIZED_NAME_CHANNELS = "channels";
+  @SerializedName(SERIALIZED_NAME_CHANNELS)
+  private List<ChannelResponse> channels = new ArrayList<>();
 
-  public RemoveChannelBody() { 
+  public ChannelsResponse() { 
   }
 
-  public RemoveChannelBody userId(String userId) {
+  public ChannelsResponse userId(String userId) {
     
     this.userId = userId;
     return this;
@@ -83,26 +86,31 @@ public class RemoveChannelBody {
   }
 
 
-  public RemoveChannelBody serviceId(String serviceId) {
+  public ChannelsResponse channels(List<ChannelResponse> channels) {
     
-    this.serviceId = serviceId;
+    this.channels = channels;
+    return this;
+  }
+
+  public ChannelsResponse addChannelsItem(ChannelResponse channelsItem) {
+    this.channels.add(channelsItem);
     return this;
   }
 
    /**
-   * Get serviceId
-   * @return serviceId
+   * Get channels
+   * @return channels
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public String getServiceId() {
-    return serviceId;
+  public List<ChannelResponse> getChannels() {
+    return channels;
   }
 
 
-  public void setServiceId(String serviceId) {
-    this.serviceId = serviceId;
+  public void setChannels(List<ChannelResponse> channels) {
+    this.channels = channels;
   }
 
 
@@ -115,22 +123,22 @@ public class RemoveChannelBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RemoveChannelBody removeChannelBody = (RemoveChannelBody) o;
-    return Objects.equals(this.userId, removeChannelBody.userId) &&
-        Objects.equals(this.serviceId, removeChannelBody.serviceId);
+    ChannelsResponse channelsResponse = (ChannelsResponse) o;
+    return Objects.equals(this.userId, channelsResponse.userId) &&
+        Objects.equals(this.channels, channelsResponse.channels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, serviceId);
+    return Objects.hash(userId, channels);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RemoveChannelBody {\n");
+    sb.append("class ChannelsResponse {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,39 +162,39 @@ public class RemoveChannelBody {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("user_id");
-    openapiFields.add("service_id");
+    openapiFields.add("channels");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("user_id");
-    openapiRequiredFields.add("service_id");
+    openapiRequiredFields.add("channels");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to RemoveChannelBody
+  * @throws IOException if the JSON Object is invalid with respect to ChannelsResponse
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (RemoveChannelBody.openapiRequiredFields.isEmpty()) {
+        if (ChannelsResponse.openapiRequiredFields.isEmpty()) {
           return;
         } else { // has required fields
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RemoveChannelBody is not found in the empty JSON string", RemoveChannelBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ChannelsResponse is not found in the empty JSON string", ChannelsResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!RemoveChannelBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RemoveChannelBody` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ChannelsResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ChannelsResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : RemoveChannelBody.openapiRequiredFields) {
+      for (String requiredField : ChannelsResponse.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
@@ -194,8 +202,9 @@ public class RemoveChannelBody {
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
-      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
+      // ensure the json data is an array
+      if (jsonObj.get("channels") != null && !jsonObj.get("channels").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `channels` to be an array in the JSON string but got `%s`", jsonObj.get("channels").toString()));
       }
   }
 
@@ -203,22 +212,22 @@ public class RemoveChannelBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RemoveChannelBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RemoveChannelBody' and its subtypes
+       if (!ChannelsResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ChannelsResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RemoveChannelBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RemoveChannelBody.class));
+       final TypeAdapter<ChannelsResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ChannelsResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RemoveChannelBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ChannelsResponse>() {
            @Override
-           public void write(JsonWriter out, RemoveChannelBody value) throws IOException {
+           public void write(JsonWriter out, ChannelsResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public RemoveChannelBody read(JsonReader in) throws IOException {
+           public ChannelsResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -229,18 +238,18 @@ public class RemoveChannelBody {
   }
 
  /**
-  * Create an instance of RemoveChannelBody given an JSON string
+  * Create an instance of ChannelsResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RemoveChannelBody
-  * @throws IOException if the JSON string is invalid with respect to RemoveChannelBody
+  * @return An instance of ChannelsResponse
+  * @throws IOException if the JSON string is invalid with respect to ChannelsResponse
   */
-  public static RemoveChannelBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RemoveChannelBody.class);
+  public static ChannelsResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ChannelsResponse.class);
   }
 
  /**
-  * Convert an instance of RemoveChannelBody to an JSON string
+  * Convert an instance of ChannelsResponse to an JSON string
   *
   * @return JSON string
   */

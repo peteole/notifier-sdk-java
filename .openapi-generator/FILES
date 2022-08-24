@@ -6,10 +6,11 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/AddChannelBody.md
+docs/ChannelsResponse.md
 docs/CrateApi.md
 docs/GetTelegramChatIdBody.md
+docs/NotifyBody.md
 docs/RemoveChannelBody.md
-docs/SendNotificationBody.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -39,6 +40,7 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AddChannelBody.java
+src/main/java/org/openapitools/client/model/ChannelsResponse.java
 src/main/java/org/openapitools/client/model/GetTelegramChatIdBody.java
+src/main/java/org/openapitools/client/model/NotifyBody.java
 src/main/java/org/openapitools/client/model/RemoveChannelBody.java
-src/main/java/org/openapitools/client/model/SendNotificationBody.java
