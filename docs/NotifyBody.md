@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**message** | **String** |  |  |
 |**userId** | **String** |  |  |
 |**subject** | **String** |  |  |
-|**message** | **String** |  |  |
 
 
 

@@ -50,18 +50,41 @@ import org.openapitools.client.JSON;
 /**
  * ChannelsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:05:37.738756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:10:38.028268Z[Etc/UTC]")
 public class ChannelsResponse {
-  public static final String SERIALIZED_NAME_CHANNELS = "channels";
-  @SerializedName(SERIALIZED_NAME_CHANNELS)
-  private List<ChannelResponse> channels = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
+  public static final String SERIALIZED_NAME_CHANNELS = "channels";
+  @SerializedName(SERIALIZED_NAME_CHANNELS)
+  private List<ChannelResponse> channels = new ArrayList<>();
+
   public ChannelsResponse() { 
   }
+
+  public ChannelsResponse userId(String userId) {
+    
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Get userId
+   * @return userId
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getUserId() {
+    return userId;
+  }
+
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
 
   public ChannelsResponse channels(List<ChannelResponse> channels) {
     
@@ -91,29 +114,6 @@ public class ChannelsResponse {
   }
 
 
-  public ChannelsResponse userId(String userId) {
-    
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getUserId() {
-    return userId;
-  }
-
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -124,21 +124,21 @@ public class ChannelsResponse {
       return false;
     }
     ChannelsResponse channelsResponse = (ChannelsResponse) o;
-    return Objects.equals(this.channels, channelsResponse.channels) &&
-        Objects.equals(this.userId, channelsResponse.userId);
+    return Objects.equals(this.userId, channelsResponse.userId) &&
+        Objects.equals(this.channels, channelsResponse.channels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channels, userId);
+    return Objects.hash(userId, channels);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChannelsResponse {\n");
-    sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    channels: ").append(toIndentedString(channels)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -161,13 +161,13 @@ public class ChannelsResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("channels");
     openapiFields.add("user_id");
+    openapiFields.add("channels");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("channels");
     openapiRequiredFields.add("user_id");
+    openapiRequiredFields.add("channels");
   }
 
  /**
@@ -199,12 +199,12 @@ public class ChannelsResponse {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
+      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
       // ensure the json data is an array
       if (jsonObj.get("channels") != null && !jsonObj.get("channels").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `channels` to be an array in the JSON string but got `%s`", jsonObj.get("channels").toString()));
-      }
-      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
   }
 

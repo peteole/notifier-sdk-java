@@ -228,7 +228,7 @@ public class CrateApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/notify/get_channels/{user_id}"
+        String localVarPath = "/get_channels/{user_id}"
             .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();

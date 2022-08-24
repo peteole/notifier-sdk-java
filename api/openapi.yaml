@@ -33,6 +33,35 @@ paths:
       - crate
       x-content-type: application/json
       x-accepts: application/json
+  /get_channels/{user_id}:
+    get:
+      deprecated: false
+      description: |
+        Get notification channels for user
+
+        get all channels registered for user with given id
+      operationId: handle_get_channels
+      parameters:
+      - deprecated: false
+        description: User id to get notification channels for
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelsResponse'
+          description: Notification channels retrieved successfully
+      summary: Get notification channels for user
+      tags:
+      - crate
+      x-accepts: application/json
   /get_telegram_chat_id:
     post:
       deprecated: false
@@ -76,35 +105,6 @@ paths:
       - crate
       x-content-type: application/json
       x-accepts: application/json
-  /notify/get_channels/{user_id}:
-    get:
-      deprecated: false
-      description: |
-        Get notification channels for user
-
-        get all channels registered for user with given id
-      operationId: handle_get_channels
-      parameters:
-      - deprecated: false
-        description: User id to get notification channels for
-        explode: false
-        in: path
-        name: user_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ChannelsResponse'
-          description: Notification channels retrieved successfully
-      summary: Get notification channels for user
-      tags:
-      - crate
-      x-accepts: application/json
   /remove_channel:
     post:
       deprecated: false
@@ -129,6 +129,19 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    RemoveChannelBody:
+      example:
+        user_id: user_id
+        service_id: service_id
+      properties:
+        user_id:
+          type: string
+        service_id:
+          type: string
+      required:
+      - service_id
+      - user_id
+      type: object
     ChannelsResponse:
       example:
         channels:
@@ -136,31 +149,14 @@ components:
         - "{}"
         user_id: user_id
       properties:
+        user_id:
+          type: string
         channels:
           items:
             $ref: '#/components/schemas/ChannelResponse'
           type: array
-        user_id:
-          type: string
       required:
       - channels
-      - user_id
-      type: object
-    AddChannelBody:
-      example:
-        user_id: user_id
-        service_username: service_username
-        service_id: service_id
-      properties:
-        service_id:
-          type: string
-        service_username:
-          type: string
-        user_id:
-          type: string
-      required:
-      - service_id
-      - service_username
       - user_id
       type: object
     GetTelegramChatIdBody:
@@ -172,17 +168,21 @@ components:
       required:
       - telegram_username
       type: object
-    RemoveChannelBody:
+    AddChannelBody:
       example:
         user_id: user_id
+        service_username: service_username
         service_id: service_id
       properties:
+        user_id:
+          type: string
         service_id:
           type: string
-        user_id:
+        service_username:
           type: string
       required:
       - service_id
+      - service_username
       - user_id
       type: object
     NotifyBody:
@@ -191,11 +191,11 @@ components:
         subject: subject
         message: message
       properties:
+        message:
+          type: string
         user_id:
           type: string
         subject:
-          type: string
-        message:
           type: string
       required:
       - message

@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**handleAddChannel**](CrateApi.md#handleAddChannel) | **POST** /add_channel | Add channel |
-| [**handleGetChannels**](CrateApi.md#handleGetChannels) | **GET** /notify/get_channels/{user_id} | Get notification channels for user |
+| [**handleGetChannels**](CrateApi.md#handleGetChannels) | **GET** /get_channels/{user_id} | Get notification channels for user |
 | [**handleGetTelegramChatId**](CrateApi.md#handleGetTelegramChatId) | **POST** /get_telegram_chat_id | Get the chat ID of a telegram username |
 | [**handleNotify**](CrateApi.md#handleNotify) | **POST** /notify | Send notification |
 | [**handleRemoveChannel**](CrateApi.md#handleRemoveChannel) | **POST** /remove_channel | Remove channel |

@@ -47,41 +47,18 @@ import org.openapitools.client.JSON;
 /**
  * RemoveChannelBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:05:37.738756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:10:38.028268Z[Etc/UTC]")
 public class RemoveChannelBody {
-  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
-  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
-  private String serviceId;
-
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
+  public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
+  @SerializedName(SERIALIZED_NAME_SERVICE_ID)
+  private String serviceId;
+
   public RemoveChannelBody() { 
   }
-
-  public RemoveChannelBody serviceId(String serviceId) {
-    
-    this.serviceId = serviceId;
-    return this;
-  }
-
-   /**
-   * Get serviceId
-   * @return serviceId
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getServiceId() {
-    return serviceId;
-  }
-
-
-  public void setServiceId(String serviceId) {
-    this.serviceId = serviceId;
-  }
-
 
   public RemoveChannelBody userId(String userId) {
     
@@ -106,6 +83,29 @@ public class RemoveChannelBody {
   }
 
 
+  public RemoveChannelBody serviceId(String serviceId) {
+    
+    this.serviceId = serviceId;
+    return this;
+  }
+
+   /**
+   * Get serviceId
+   * @return serviceId
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getServiceId() {
+    return serviceId;
+  }
+
+
+  public void setServiceId(String serviceId) {
+    this.serviceId = serviceId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -116,21 +116,21 @@ public class RemoveChannelBody {
       return false;
     }
     RemoveChannelBody removeChannelBody = (RemoveChannelBody) o;
-    return Objects.equals(this.serviceId, removeChannelBody.serviceId) &&
-        Objects.equals(this.userId, removeChannelBody.userId);
+    return Objects.equals(this.userId, removeChannelBody.userId) &&
+        Objects.equals(this.serviceId, removeChannelBody.serviceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceId, userId);
+    return Objects.hash(userId, serviceId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RemoveChannelBody {\n");
-    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -153,13 +153,13 @@ public class RemoveChannelBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("service_id");
     openapiFields.add("user_id");
+    openapiFields.add("service_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("service_id");
     openapiRequiredFields.add("user_id");
+    openapiRequiredFields.add("service_id");
   }
 
  /**
@@ -191,11 +191,11 @@ public class RemoveChannelBody {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
-      }
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
+      if (jsonObj.get("service_id") != null && !jsonObj.get("service_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `service_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_id").toString()));
       }
   }
 
