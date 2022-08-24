@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**handleAddChannel**](CrateApi.md#handleAddChannel) | **POST** /add_channel | Add channel |
+| [**handleGetChannels**](CrateApi.md#handleGetChannels) | **GET** /notify/get_channels/{user_id} | Get notification channels for user |
 | [**handleGetTelegramChatId**](CrateApi.md#handleGetTelegramChatId) | **POST** /get_telegram_chat_id | Get the chat ID of a telegram username |
 | [**handleNotify**](CrateApi.md#handleNotify) | **POST** /notify | Send notification |
 | [**handleRemoveChannel**](CrateApi.md#handleRemoveChannel) | **POST** /remove_channel | Remove channel |
@@ -70,6 +71,68 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Channel added successfully |  -  |
+
+<a name="handleGetChannels"></a>
+# **handleGetChannels**
+> ChannelsResponse handleGetChannels(userId)
+
+Get notification channels for user
+
+Get notification channels for user  get all channels registered for user with given id 
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.CrateApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    CrateApi apiInstance = new CrateApi(defaultClient);
+    String userId = "userId_example"; // String | User id to get notification channels for
+    try {
+      ChannelsResponse result = apiInstance.handleGetChannels(userId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CrateApi#handleGetChannels");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| User id to get notification channels for | |
+
+### Return type
+
+[**ChannelsResponse**](ChannelsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Notification channels retrieved successfully |  -  |
 
 <a name="handleGetTelegramChatId"></a>
 # **handleGetTelegramChatId**

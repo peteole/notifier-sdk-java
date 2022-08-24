@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**userId** | **String** |  |  |
-|**message** | **String** |  |  |
 |**subject** | **String** |  |  |
+|**message** | **String** |  |  |
 
 
 

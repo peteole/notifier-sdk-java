@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userId** | **String** |  |  |
 |**serviceId** | **String** |  |  |
+|**userId** | **String** |  |  |
 
 
 

@@ -47,7 +47,7 @@ import org.openapitools.client.JSON;
 /**
  * AddChannelBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T12:44:59.096146Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:05:37.738756Z[Etc/UTC]")
 public class AddChannelBody {
   public static final String SERIALIZED_NAME_SERVICE_ID = "service_id";
   @SerializedName(SERIALIZED_NAME_SERVICE_ID)

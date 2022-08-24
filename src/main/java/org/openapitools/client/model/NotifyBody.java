@@ -47,19 +47,19 @@ import org.openapitools.client.JSON;
 /**
  * NotifyBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T12:44:59.096146Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-08-24T13:05:37.738756Z[Etc/UTC]")
 public class NotifyBody {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
   private String subject;
+
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
 
   public NotifyBody() { 
   }
@@ -87,29 +87,6 @@ public class NotifyBody {
   }
 
 
-  public NotifyBody message(String message) {
-    
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getMessage() {
-    return message;
-  }
-
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-
   public NotifyBody subject(String subject) {
     
     this.subject = subject;
@@ -133,6 +110,29 @@ public class NotifyBody {
   }
 
 
+  public NotifyBody message(String message) {
+    
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getMessage() {
+    return message;
+  }
+
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -144,13 +144,13 @@ public class NotifyBody {
     }
     NotifyBody notifyBody = (NotifyBody) o;
     return Objects.equals(this.userId, notifyBody.userId) &&
-        Objects.equals(this.message, notifyBody.message) &&
-        Objects.equals(this.subject, notifyBody.subject);
+        Objects.equals(this.subject, notifyBody.subject) &&
+        Objects.equals(this.message, notifyBody.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, message, subject);
+    return Objects.hash(userId, subject, message);
   }
 
   @Override
@@ -158,8 +158,8 @@ public class NotifyBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class NotifyBody {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -183,14 +183,14 @@ public class NotifyBody {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("user_id");
-    openapiFields.add("message");
     openapiFields.add("subject");
+    openapiFields.add("message");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("user_id");
-    openapiRequiredFields.add("message");
     openapiRequiredFields.add("subject");
+    openapiRequiredFields.add("message");
   }
 
  /**
@@ -225,11 +225,11 @@ public class NotifyBody {
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
-      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
       if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
+      }
+      if (jsonObj.get("message") != null && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
   }
 

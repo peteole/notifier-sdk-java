@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.AddChannelBody;
+import org.openapitools.client.model.ChannelsResponse;
 import org.openapitools.client.model.GetTelegramChatIdBody;
 import org.openapitools.client.model.NotifyBody;
 import org.openapitools.client.model.RemoveChannelBody;
@@ -196,6 +197,133 @@ public class CrateApi {
 
         okhttp3.Call localVarCall = handleAddChannelValidateBeforeCall(addChannelBody, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for handleGetChannels
+     * @param userId User id to get notification channels for (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Notification channels retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call handleGetChannelsCall(String userId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/notify/get_channels/{user_id}"
+            .replaceAll("\\{" + "user_id" + "\\}", localVarApiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call handleGetChannelsValidateBeforeCall(String userId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling handleGetChannels(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = handleGetChannelsCall(userId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get notification channels for user
+     * Get notification channels for user  get all channels registered for user with given id 
+     * @param userId User id to get notification channels for (required)
+     * @return ChannelsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Notification channels retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ChannelsResponse handleGetChannels(String userId) throws ApiException {
+        ApiResponse<ChannelsResponse> localVarResp = handleGetChannelsWithHttpInfo(userId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get notification channels for user
+     * Get notification channels for user  get all channels registered for user with given id 
+     * @param userId User id to get notification channels for (required)
+     * @return ApiResponse&lt;ChannelsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Notification channels retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ChannelsResponse> handleGetChannelsWithHttpInfo(String userId) throws ApiException {
+        okhttp3.Call localVarCall = handleGetChannelsValidateBeforeCall(userId, null);
+        Type localVarReturnType = new TypeToken<ChannelsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get notification channels for user (asynchronously)
+     * Get notification channels for user  get all channels registered for user with given id 
+     * @param userId User id to get notification channels for (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Notification channels retrieved successfully </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call handleGetChannelsAsync(String userId, final ApiCallback<ChannelsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = handleGetChannelsValidateBeforeCall(userId, _callback);
+        Type localVarReturnType = new TypeToken<ChannelsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
