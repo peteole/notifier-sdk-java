@@ -9,7 +9,6 @@ docs/AddChannelBody.md
 docs/ChannelResponse.md
 docs/ChannelsResponse.md
 docs/CrateApi.md
-docs/GetTelegramChatIdBody.md
 docs/NotifyBody.md
 docs/RemoveChannelBody.md
 git_push.sh
@@ -43,6 +42,5 @@ src/main/java/org/openapitools/client/model/AbstractOpenApiSchema.java
 src/main/java/org/openapitools/client/model/AddChannelBody.java
 src/main/java/org/openapitools/client/model/ChannelResponse.java
 src/main/java/org/openapitools/client/model/ChannelsResponse.java
-src/main/java/org/openapitools/client/model/GetTelegramChatIdBody.java
 src/main/java/org/openapitools/client/model/NotifyBody.java
 src/main/java/org/openapitools/client/model/RemoveChannelBody.java

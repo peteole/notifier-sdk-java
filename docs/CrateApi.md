@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**handleAddChannel**](CrateApi.md#handleAddChannel) | **POST** /add_channel | Add channel |
 | [**handleGetChannels**](CrateApi.md#handleGetChannels) | **GET** /get_channels/{user_id} | Get notification channels for user |
-| [**handleGetTelegramChatId**](CrateApi.md#handleGetTelegramChatId) | **POST** /get_telegram_chat_id | Get the chat ID of a telegram username |
+| [**handleGetTelegramChatId**](CrateApi.md#handleGetTelegramChatId) | **GET** /get_telegram_chat_id/{username} | Get the chat ID of a telegram username |
 | [**handleNotify**](CrateApi.md#handleNotify) | **POST** /notify | Send notification |
 | [**handleRemoveChannel**](CrateApi.md#handleRemoveChannel) | **POST** /remove_channel | Remove channel |
 
@@ -136,7 +136,7 @@ No authorization required
 
 <a name="handleGetTelegramChatId"></a>
 # **handleGetTelegramChatId**
-> handleGetTelegramChatId(getTelegramChatIdBody)
+> String handleGetTelegramChatId(username)
 
 Get the chat ID of a telegram username
 
@@ -157,9 +157,10 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     CrateApi apiInstance = new CrateApi(defaultClient);
-    GetTelegramChatIdBody getTelegramChatIdBody = new GetTelegramChatIdBody(); // GetTelegramChatIdBody | 
+    String username = "username_example"; // String | User id to get notification channels for
     try {
-      apiInstance.handleGetTelegramChatId(getTelegramChatIdBody);
+      String result = apiInstance.handleGetTelegramChatId(username);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CrateApi#handleGetTelegramChatId");
       System.err.println("Status code: " + e.getCode());
@@ -175,11 +176,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **getTelegramChatIdBody** | [**GetTelegramChatIdBody**](GetTelegramChatIdBody.md)|  | |
+| **username** | **String**| User id to get notification channels for | |
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -187,13 +188,14 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Channel added successfully |  -  |
+| **200** | Returns the chat ID |  -  |
+| **500** | Could not look up username |  -  |
 
 <a name="handleNotify"></a>
 # **handleNotify**
