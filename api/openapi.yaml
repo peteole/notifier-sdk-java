@@ -138,18 +138,48 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ChannelResponse:
+    RemoveChannelBody:
       example:
-        service_username: service_username
+        user_id: user_id
         service_id: service_id
       properties:
-        service_username:
+        user_id:
           type: string
         service_id:
           type: string
       required:
       - service_id
+      - user_id
+      type: object
+    ChannelResponse:
+      example:
+        service_username: service_username
+        service_id: service_id
+      properties:
+        service_id:
+          type: string
+        service_username:
+          type: string
+      required:
+      - service_id
       - service_username
+      type: object
+    AddChannelBody:
+      example:
+        user_id: user_id
+        service_username: service_username
+        service_id: service_id
+      properties:
+        service_id:
+          type: string
+        service_username:
+          type: string
+        user_id:
+          type: string
+      required:
+      - service_id
+      - service_username
+      - user_id
       type: object
     NotifyBody:
       example:
@@ -166,23 +196,6 @@ components:
       required:
       - message
       - subject
-      - user_id
-      type: object
-    AddChannelBody:
-      example:
-        user_id: user_id
-        service_username: service_username
-        service_id: service_id
-      properties:
-        user_id:
-          type: string
-        service_id:
-          type: string
-        service_username:
-          type: string
-      required:
-      - service_id
-      - service_username
       - user_id
       type: object
     ChannelsResponse:
@@ -202,19 +215,6 @@ components:
           type: string
       required:
       - channels
-      - user_id
-      type: object
-    RemoveChannelBody:
-      example:
-        user_id: user_id
-        service_id: service_id
-      properties:
-        service_id:
-          type: string
-        user_id:
-          type: string
-      required:
-      - service_id
       - user_id
       type: object
 
